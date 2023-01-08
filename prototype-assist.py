@@ -152,6 +152,9 @@ def convert_to_pdf(glob_path, outpath, pdf_title, pdf_author, pdf_subject):
 		# append the file to the pages list by using Image
 		pages.append(Image.open(file))
 	
+	# log activity of where the pdf will be spit out
+	log('- constructed PDF will be output to the following path: ' + outpath)
+	
 	# save the collected pdf files as a pdf
 	pages[0].save(outpath, save_all=True, append_images=pages[1:], title=pdf_title, author=pdf_author, subject=pdf_subject)
 
